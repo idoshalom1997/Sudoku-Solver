@@ -66,11 +66,11 @@ python -m unittest discover -s tests
 
 ```
 sudoku.py          solver logic (my work)
-sudoku_helper.py   board generator and pygame display, provided by the course staff
+sudoku_helper.py   board generator and pygame display (provided by the course)
 play.py            command-line launcher
 tests/             unit tests for the solver
 ```
 
 ## Background
 
-Written in December 2021 as an exercise in *Introduction to Programming* at the Hebrew University of Jerusalem (B.Sc. Statistics & Data Science). The course provided the board generator and display code; the solver in `sudoku.py` is my own.
+Built in December 2021 during the *Introduction to Programming* course at the Hebrew University of Jerusalem (B.Sc. Statistics & Data Science). The course provided the board generator and display code; the solver in `sudoku.py` is my own.
