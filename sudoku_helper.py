@@ -1,3 +1,9 @@
+##############################################################
+# File: sudoku_helper.py
+# Provided by the Intro to Programming course staff (HUJI 2021-2022).
+# Generates random boards and draws the board window with pygame.
+##############################################################
+
 import pygame
 import copy
 import random
@@ -5,7 +11,7 @@ import random
 
 # Run sudoku game. n is the number of filled squares
 def sudoku_action(n=25, diag=False, input_board=None):
-    from ex4 import fill_board, add_square, sudoku_options, sudoku_iscomplete
+    from sudoku import fill_board, add_square, sudoku_options, sudoku_iscomplete
 
     size = [9,9]  # fixed board
     board, full_board, xy = generate_random_board(n, diag, input_board)
@@ -35,7 +41,7 @@ def sudoku_action(n=25, diag=False, input_board=None):
 
 # Generate a random initial board
 def generate_random_board(init_num=25, diag=False, input_grid=None):
-    from ex4 import sudoku_isvalid
+    from sudoku import sudoku_isvalid
 
     if input_grid == None:
         grid = make_board(3, diag)
@@ -59,7 +65,7 @@ def generate_random_board(init_num=25, diag=False, input_grid=None):
 # https://codereview.stackexchange.com/questions/88849/sudoku-puzzle-generator
 def make_board(m=3, diag=False):
     """Return a random filled m**2 x m**2 Sudoku board."""
-    from ex4 import find_all_conflicts, sudoku_iscomplete
+    from sudoku import find_all_conflicts, sudoku_iscomplete
 
     n = m**2
     board = [[0 for _ in range(n)] for _ in range(n)]
@@ -108,7 +114,7 @@ def make_board(m=3, diag=False):
 # Display sudoku: 9*9 board with values at (x,y) coordiantes equal to val
 def display_sudoku(board, size=[9,9], xy=[]):
 
-    from ex4 import find_all_conflicts
+    from sudoku import find_all_conflicts
     pygame.init()
     CELLSIZE = 40
 
@@ -131,11 +137,11 @@ def display_sudoku(board, size=[9,9], xy=[]):
     conflicts = find_all_conflicts(board)
     for i in range(size[0]):  # draw filled numbers
         for j in range(size[1]):
-            if board[i][j] > 0 or [i,j] in conflicts:
+            if board[i][j] > 0 or (i,j) in conflicts:
 
                 if (i,j) in xy:  #  and j in y:  # init squares
                     text = font.render(str(board[i][j]), CELLSIZE, BLACK)  # get text from initialization
-                elif [i,j] in conflicts:
+                elif (i,j) in conflicts:
                     if board[i][j] > 0:
                         text = font.render(str(board[i][j]), CELLSIZE, RED)  # conflict. Filled square
                     else:

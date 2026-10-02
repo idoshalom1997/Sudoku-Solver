@@ -1,8 +1,8 @@
 ##############################################################
-# File: ex4.py
+# File: sudoku.py
 # Writer: <Ido Shalom>
 # Exercise: intro2cs ex4 2021-2022
-# Description: will be inside the README.py file.
+# Description: Sudoku solving logic (see README.md).
 ##############################################################
 
 from sudoku_helper import *
